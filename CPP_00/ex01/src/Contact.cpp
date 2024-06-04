@@ -6,7 +6,7 @@
 /*   By: antonweizmann <antonweizmann@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 02:24:09 by antonweizma       #+#    #+#             */
-/*   Updated: 2024/06/04 11:40:24 by antonweizma      ###   ########.fr       */
+/*   Updated: 2024/06/04 12:58:58 by antonweizma      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ void	display_element(std::string element)
 	}
 	else
 		output = element;
+	for (size_t	k = 0; k < 10 - output.length(); k++) std::cout << " ";
 	std::cout << output;
-	for (size_t	k = output.length(); k < 10; k++) std::cout << " ";
 }
 
 void	Contact::display_contact(std::string index)

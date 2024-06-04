@@ -6,7 +6,7 @@
 /*   By: antonweizmann <antonweizmann@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 10:13:07 by antonweizma       #+#    #+#             */
-/*   Updated: 2024/06/04 11:59:58 by antonweizma      ###   ########.fr       */
+/*   Updated: 2024/06/04 13:08:54 by antonweizma      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,45 @@ int	PhoneBook::fill_contact(int	index){
 	if (!input.compare("0")) return (0);
 	if (!input.compare("1")) return (1);
 	_contacts[index].set_secret(input);
-	_max_reached++;
 	return (2);
+}
+
+void	PhoneBook::search(void)
+{
+	std::string	input;
+	int			index = 0;
+
+	std::cout << "|\033[1;32m     Index\033[0m|\033[1;32mFirst Name\033[0m|\033[1;32m Last Name\033[0m|\033[1;32m  Nickname\033[0m|" << std::endl;
+	for (int i = 0; i < _max_reached && i < 8; i++){
+		_contacts[i].display_contact(std::to_string(i));
+	}
+	std::cout << std::endl << "You can look at all the infos of a contact \033[1;32m[Enter the index of the contact to show] [press enter to go back to Phonebook]\033[0m" << std::endl;
+	getline(std::cin, input);
+	while (1)
+	{
+		if (index)
+			getline(std::cin, input);
+		if (input.empty())
+			break ;
+		try {
+			index = std::stoi(input);
+			if (index < 8 && index >= 0)
+			{
+				if (index < _max_reached)
+				{
+					_contacts[index].display_full();
+				}
+				break ;
+			}
+			else
+				std::cout << "\033[1;31mInvalid Index.\033[0m Please enter a number between 0 and 8" << std::endl;
+		} catch (const std::invalid_argument&){
+			std::cout << "\033[1;31mInvalid Input.\033[0m Please enter a valid number" << std::endl;
+		} catch (const std::out_of_range&){
+			std::cout << "\033[1;31mInput out of range.\033[0m Please enter a valid number" << std::endl;
+		}
+		index = 1;
+	}
 }
 
 void	PhoneBook::run_phonebook(void){
@@ -70,23 +107,10 @@ void	PhoneBook::run_phonebook(void){
 		if (!input.compare("ADD"))
 		{
 			_max_reached++;
-			if (fill_contact(_max_reached % 8 - 1) == 1) _max_reached--;
+			if (fill_contact((_max_reached - 1) % 8) == 1) _max_reached--;
 		}
 		else if (!input.compare("SEARCH"))
-		{
-			std::string	input;
-			int			index = 0;
-
-			std::cout << "|\033[1;32mIndex     \033[0m|\033[1;32mFirst Name\033[0m|\033[1;32mLast Name \033[0m|\033[1;32mNickname  \033[0m|" << std::endl;
-			for (int i = 0; i < _max_reached - 1 && i < 8; i++){
-				_contacts[i].display_contact(std::to_string(i));
-			}
-			std::cout << std::endl << "You can look at all the infos of a contact \033[1;32m[Enter the index of the contact to show] [press enter to go back to Phonebook]\033[0m" << std::endl;
-			getline(std::cin, input);
-			if (input.length() == 1)
-				index = std::stoi(input);
-			if (index < _max_reached - 1 && index < 8 && index >= 0 && !std::to_string(index).compare(input)) _contacts[index].display_full();
-		}
+			PhoneBook::search();
 		else if (!input.compare("EXIT"))
 			break;
 	}

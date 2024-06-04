@@ -6,7 +6,7 @@
 /*   By: antonweizmann <antonweizmann@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 10:14:35 by antonweizma       #+#    #+#             */
-/*   Updated: 2024/06/04 11:03:39 by antonweizma      ###   ########.fr       */
+/*   Updated: 2024/06/04 12:56:13 by antonweizma      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ class PhoneBook
 			~PhoneBook(void);
 			void	run_phonebook(void);
 			int		fill_contact(int index);
+			void	search(void);
 };
 #endif
