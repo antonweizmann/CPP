@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aweizman <aweizman@student.42.fr>          +#+  +:+       +#+         #
+#    By: antonweizmann <antonweizmann@student.42    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/03 15:24:38 by aweizman          #+#    #+#              #
-#    Updated: 2024/06/04 15:16:43 by aweizman         ###   ########.fr        #
+#    Updated: 2024/06/04 21:03:42 by antonweizma      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CFLAGS = -Wall -Werror -Wextra -std=c++98
 
 NAME = globalbanksters
 
-SRCS = test.cpp
+SRCS = tests.cpp Account.cpp
 
 INCLUDES = -I./includes
 
