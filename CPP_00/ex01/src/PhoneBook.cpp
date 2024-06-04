@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antonweizmann <antonweizmann@student.42    +#+  +:+       +#+        */
+/*   By: aweizman <aweizman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 10:13:07 by antonweizma       #+#    #+#             */
-/*   Updated: 2024/06/04 13:08:54 by antonweizma      ###   ########.fr       */
+/*   Updated: 2024/06/04 14:55:52 by aweizman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,36 +20,43 @@ PhoneBook::~PhoneBook(){
 
 }
 
+void	get_input(std::string *input, std::string item)
+{
+	getline(std::cin, *input);
+	while (input->empty())
+	{
+		std::cout << "\033[1;31mThis field cannot be left empty\033[0m" << std::endl;
+		std::cout << item << std::endl;
+		getline(std::cin, *input);
+		if (!input->compare("0")) return ;
+	}
+}
+
 int	PhoneBook::fill_contact(int	index){
 	std::string	input;
 
-	std::cout << "Please enter the contact details now \033[1;32m[enter 0 to save go back to Phonebook] [enter 1 to go back to Phonebook without saving]\033[0m" << std::endl;
+	std::cout << "Please enter the contact details now \033[1;32m[enter 0 to abort and go back to Phonebook]\033[0m" << std::endl;
 	std::cout << "First Name: " << std::endl;
-	getline(std::cin, input);
+	get_input(&input, "First Name: ");
 	if (!input.compare("0")) return (0);
-	if (!input.compare("1")) return (1);
 	_contacts[index].set_fname(input);
 	std::cout << "Last Name: " << std::endl;
-	getline(std::cin, input);
+	get_input(&input, "Last Name: ");
 	if (!input.compare("0")) return (0);
-	if (!input.compare("1")) return (1);
 	_contacts[index].set_lname(input);
 	std::cout << "Nickname: " << std::endl;
-	getline(std::cin, input);
+	get_input(&input, "Nickname: ");
 	if (!input.compare("0")) return (0);
-	if (!input.compare("1")) return (1);
 	_contacts[index].set_nick(input);
 	std::cout << "Phonenumber: " << std::endl;
-	getline(std::cin, input);
+	get_input(&input, "Phonenumber:");
 	if (!input.compare("0")) return (0);
-	if (!input.compare("1")) return (1);
 	_contacts[index].set_phone(input);
 	std::cout << "Darkest Secret: " << std::endl;
-	getline(std::cin, input);
+	get_input(&input, "Darkest Secret: ");
 	if (!input.compare("0")) return (0);
-	if (!input.compare("1")) return (1);
 	_contacts[index].set_secret(input);
-	return (2);
+	return (1);
 }
 
 void	PhoneBook::search(void)
@@ -107,7 +114,7 @@ void	PhoneBook::run_phonebook(void){
 		if (!input.compare("ADD"))
 		{
 			_max_reached++;
-			if (fill_contact((_max_reached - 1) % 8) == 1) _max_reached--;
+			if (fill_contact((_max_reached - 1) % 8) == 0) _max_reached--;
 		}
 		else if (!input.compare("SEARCH"))
 			PhoneBook::search();
