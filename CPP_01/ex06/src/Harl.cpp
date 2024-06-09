@@ -6,11 +6,19 @@
 /*   By: antonweizmann <antonweizmann@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 12:27:35 by antonweizma       #+#    #+#             */
-/*   Updated: 2024/06/09 14:22:52 by antonweizma      ###   ########.fr       */
+/*   Updated: 2024/06/09 14:28:55 by antonweizma      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
+
+Harl::Harl(){
+
+}
+
+Harl::~Harl(){
+	
+}
 
 void	Harl::get_message(int case_nbr)
 {

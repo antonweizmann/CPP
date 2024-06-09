@@ -6,7 +6,7 @@
 /*   By: antonweizmann <antonweizmann@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 12:28:55 by antonweizma       #+#    #+#             */
-/*   Updated: 2024/06/09 13:18:48 by antonweizma      ###   ########.fr       */
+/*   Updated: 2024/06/09 14:29:21 by antonweizma      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ class Harl
 			void error(void);
 	public:
 			void complain(std::string level);
+			Harl();
+			~Harl();
 };
 
 #endif

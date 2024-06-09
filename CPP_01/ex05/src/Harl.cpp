@@ -6,11 +6,19 @@
 /*   By: antonweizmann <antonweizmann@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 12:27:35 by antonweizma       #+#    #+#             */
-/*   Updated: 2024/06/09 13:57:15 by antonweizma      ###   ########.fr       */
+/*   Updated: 2024/06/09 14:29:35 by antonweizma      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
+
+Harl::Harl(){
+
+}
+
+Harl::~Harl(){
+
+}
 
 void	Harl::complain(std::string level)
 {
