@@ -65,6 +65,7 @@
 		"clocale": "cpp",
 		"execution": "cpp",
 		"iomanip": "cpp",
-		"variant": "cpp"
+		"variant": "cpp",
+		"fstream": "cpp"
 	}
 }
