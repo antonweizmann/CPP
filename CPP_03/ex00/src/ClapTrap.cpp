@@ -6,7 +6,7 @@
 /*   By: aweizman <aweizman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 15:42:19 by aweizman          #+#    #+#             */
-/*   Updated: 2024/06/18 16:10:02 by aweizman         ###   ########.fr       */
+/*   Updated: 2024/06/18 16:15:11 by aweizman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,28 @@
 
 ClapTrap::ClapTrap(std::string& name) : _name(name), _health(10), _energy(10), _attack(0)
 {
-	std::cout << "Name constructor called" << std::endl;
+	std::cout << "ClapTrap Name constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap() : _name("NoName"), _health(10), _energy(10), _attack(0)
 {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "ClapTrap Default constructor called" << std::endl;
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Destructer called" << std::endl;
+	std::cout << "ClapTrap Destructer called" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& src)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "ClapTrap Copy constructor called" << std::endl;
 	*this = src;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& src)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	std::cout << "ClapTrap Copy assignment operator called" << std::endl;
 	if (this != &src)
 	{
 		_name = src._name;
