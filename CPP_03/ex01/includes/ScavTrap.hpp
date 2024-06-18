@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aweizman <aweizman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/18 16:03:56 by aweizman          #+#    #+#             */
-/*   Updated: 2024/06/18 17:03:35 by aweizman         ###   ########.fr       */
+/*   Created: 2024/06/18 15:32:42 by aweizman          #+#    #+#             */
+/*   Updated: 2024/06/18 17:01:02 by aweizman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#ifndef SCAVTRAPP_HPP
+# define SCAVTRAPP_HPP
 
-int main()
+#include <iostream>
+#include <string>
+#include "ClapTrap.hpp"
+
+class ScavTrap: public ClapTrap
 {
-	std::string s= "ClapA";
-	ScavTrap	clapA(s);
-	ScavTrap	clapB;
+	public:
+			void	attack(const std::string& target);
+			ScavTrap(std::string& name);
+			~ScavTrap();
+			ScavTrap();
+			ScavTrap(const ScavTrap& src);
+			ScavTrap& operator=(const ScavTrap& src);
+			void	guardGate(void);
+};
 
-	clapA.attack("clapB");
-	clapB.takeDamage(1);
-	clapB.beRepaired(2);
-	clapB.guardGate();
-}
+#endif

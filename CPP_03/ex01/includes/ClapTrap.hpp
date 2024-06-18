@@ -6,7 +6,7 @@
 /*   By: aweizman <aweizman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 15:32:42 by aweizman          #+#    #+#             */
-/*   Updated: 2024/06/18 15:42:11 by aweizman         ###   ########.fr       */
+/*   Updated: 2024/06/18 16:36:00 by aweizman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 class ClapTrap
 {
-	private:
+	protected:
 			std::string		_name;
 			unsigned int	_health;
 			unsigned int	_energy;
