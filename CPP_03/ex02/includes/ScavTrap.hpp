@@ -6,12 +6,12 @@
 /*   By: aweizman <aweizman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 15:32:42 by aweizman          #+#    #+#             */
-/*   Updated: 2024/06/18 17:01:02 by aweizman         ###   ########.fr       */
+/*   Updated: 2024/06/18 17:10:28 by aweizman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAPP_HPP
-# define SCAVTRAPP_HPP
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
 #include <iostream>
 #include <string>

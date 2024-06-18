@@ -6,7 +6,7 @@
 #    By: aweizman <aweizman@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/03 15:24:38 by aweizman          #+#    #+#              #
-#    Updated: 2024/06/18 17:04:33 by aweizman         ###   ########.fr        #
+#    Updated: 2024/06/18 17:13:22 by aweizman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,9 @@ CC = c++
 
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
-NAME = ScavTrap
+NAME = FragTrap
 
-SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp
+SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 
 INCLUDES = -I./includes
 
