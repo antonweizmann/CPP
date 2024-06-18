@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antonweizmann <antonweizmann@student.42    +#+  +:+       +#+        */
+/*   By: aweizman <aweizman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 21:12:22 by antonweizma       #+#    #+#             */
-/*   Updated: 2024/06/18 10:56:46 by antonweizma      ###   ########.fr       */
+/*   Updated: 2024/06/18 15:49:59 by aweizman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ Fixed::Fixed()
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructer called" << std::endl;
-}
 
 Fixed::Fixed(const Fixed &temp)
 {
