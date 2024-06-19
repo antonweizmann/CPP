@@ -6,7 +6,7 @@
 /*   By: aweizman <aweizman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 15:48:53 by aweizman          #+#    #+#             */
-/*   Updated: 2024/06/19 16:11:11 by aweizman         ###   ########.fr       */
+/*   Updated: 2024/06/19 16:43:49 by aweizman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,5 @@ Dog& Dog::operator=(const Dog& src)
 
 void	Dog::makeSound() const
 {
-	std::cout << "Dog sound: Wuf Wuf";
+	std::cout << "Dog sound: Wuf Wuf" << std::endl;
 }

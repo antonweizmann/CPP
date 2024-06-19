@@ -6,7 +6,7 @@
 #    By: aweizman <aweizman@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/03 15:24:38 by aweizman          #+#    #+#              #
-#    Updated: 2024/06/19 16:19:42 by aweizman         ###   ########.fr        #
+#    Updated: 2024/06/19 16:44:12 by aweizman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CC = c++
 
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
-NAME = ClapTrap
+NAME = Animals
 
 SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp
 
@@ -38,14 +38,14 @@ OBJS = $(addprefix $(OBJ_PATH)/,$(OBJ))
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) -o $(NAME) $(CFLAGS) $(INCLUDES) $(OBJS)
+	@$(CC) -o $(NAME) $(CFLAGS) $(INCLUDES) $(OBJS)
 	@printf "%-100s\n" "$(NAME) compiled"
 
 $(OBJ_PATH):
 	@mkdir -p $(OBJ_PATH)
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.cpp | $(OBJ_PATH)
-	$(CC) $(CFLAGS) $(INCLUDES) -o $@ -c $<
+	@$(CC) $(CFLAGS) $(INCLUDES) -o $@ -c $<
 
 clean:
 	@rm -rf $(OBJ_PATH)
