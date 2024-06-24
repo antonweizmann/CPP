@@ -12,7 +12,7 @@
 
 #include "Animal.hpp"
 
-Animal::Animal() : type("unasigned")
+Animal::Animal() : type("Animal")
 {
 	std::cout << "Animal default constructor called" << std::endl;
 }
