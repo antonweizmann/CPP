@@ -6,7 +6,7 @@
 /*   By: aweizman <aweizman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 15:40:12 by aweizman          #+#    #+#             */
-/*   Updated: 2024/06/19 16:13:44 by aweizman         ###   ########.fr       */
+/*   Updated: 2024/06/24 17:04:29 by aweizman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,12 @@
 #include <iostream>
 #include <string>
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Cat : public Animal
 {
+	private:
+		Brain* _brain;
 	public:
 		Cat();
 		~Cat();

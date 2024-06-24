@@ -6,7 +6,7 @@
 /*   By: aweizman <aweizman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 15:48:53 by aweizman          #+#    #+#             */
-/*   Updated: 2024/06/24 15:37:40 by aweizman         ###   ########.fr       */
+/*   Updated: 2024/06/24 17:21:34 by aweizman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 Cat::Cat() : Animal()
 {
-	type = "Cat";
 	std::cout << "Cat default constructor called" << std::endl;
+	_brain = new Brain();
+	type = "Cat";
 }
 
 Cat::~Cat()
 {
+	delete _brain;
 	std::cout << "Cat destructer called" << std::endl;
 }
 
