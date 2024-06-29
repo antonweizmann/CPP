@@ -6,7 +6,7 @@
 /*   By: aweizman <aweizman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 21:12:22 by antonweizma       #+#    #+#             */
-/*   Updated: 2024/06/18 15:49:59 by aweizman         ###   ########.fr       */
+/*   Updated: 2024/06/29 15:01:02 by aweizman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ Fixed::Fixed()
 
 Fixed::~Fixed()
 {
+}
 
 Fixed::Fixed(const Fixed &temp)
 {
