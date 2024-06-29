@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sed.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antonweizmann <antonweizmann@student.42    +#+  +:+       +#+        */
+/*   By: aweizman <aweizman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 19:17:59 by antonweizma       #+#    #+#             */
-/*   Updated: 2024/06/08 11:43:26 by antonweizma      ###   ########.fr       */
+/*   Updated: 2024/06/29 14:59:24 by aweizman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-
+#include <cstring>
+#include <cerrno>
 
 #endif

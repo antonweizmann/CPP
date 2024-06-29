@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antonweizmann <antonweizmann@student.42    +#+  +:+       +#+        */
+/*   By: aweizman <aweizman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 19:17:13 by antonweizma       #+#    #+#             */
-/*   Updated: 2024/06/08 12:25:21 by antonweizma      ###   ########.fr       */
+/*   Updated: 2024/06/29 14:58:32 by aweizman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	main(int argc, char **argv)
 	}
 	std::string infile_name(argv[0]);
 	std::string	outfile_name = get_outfile_name(infile_name);
-	outfile.open(outfile_name);
+	outfile.open(outfile_name.c_str());
 	if (!outfile.is_open())
 	{
 		std::cerr << "Error creating outfile: " << outfile_name << std::endl;
