@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antonweizmann <antonweizmann@student.42    +#+  +:+       +#+        */
+/*   By: aweizman <aweizman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 10:14:35 by antonweizma       #+#    #+#             */
-/*   Updated: 2024/06/04 12:56:13 by antonweizma      ###   ########.fr       */
+/*   Updated: 2024/06/29 14:37:32 by aweizman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "Contact.hpp"
 # include <iostream>
 # include <string>
-
+# include <sstream>
 class PhoneBook
 {
 	private:

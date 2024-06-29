@@ -6,7 +6,7 @@
 /*   By: aweizman <aweizman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 10:13:07 by antonweizma       #+#    #+#             */
-/*   Updated: 2024/06/04 14:55:52 by aweizman         ###   ########.fr       */
+/*   Updated: 2024/06/29 14:51:52 by aweizman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,9 @@ void	PhoneBook::search(void)
 
 	std::cout << "|\033[1;32m     Index\033[0m|\033[1;32mFirst Name\033[0m|\033[1;32m Last Name\033[0m|\033[1;32m  Nickname\033[0m|" << std::endl;
 	for (int i = 0; i < _max_reached && i < 8; i++){
-		_contacts[i].display_contact(std::to_string(i));
+		std::stringstream ss;
+		ss << i;
+		_contacts[i].display_contact(ss.str());
 	}
 	std::cout << std::endl << "You can look at all the infos of a contact \033[1;32m[Enter the index of the contact to show] [press enter to go back to Phonebook]\033[0m" << std::endl;
 	getline(std::cin, input);
@@ -77,14 +79,18 @@ void	PhoneBook::search(void)
 		if (input.empty())
 			break ;
 		try {
-			index = std::stoi(input);
+			std::stringstream stoi(input);
+			stoi >> index;
+			if (stoi.fail())
+        		std::cout << "Invalid argument for stoi: " + input << std::endl;
 			if (index < 8 && index >= 0)
 			{
 				if (index < _max_reached)
 				{
 					_contacts[index].display_full();
+					break ;
 				}
-				break ;
+				std::cout << "\033[1;31mInvalid Index.\033[0m Please enter a index that is shown" << std::endl;
 			}
 			else
 				std::cout << "\033[1;31mInvalid Index.\033[0m Please enter a number between 0 and 8" << std::endl;
@@ -123,5 +129,5 @@ void	PhoneBook::run_phonebook(void){
 	}
 	for (int i = 0; i < _max_reached && i < 8; i++) _contacts[i].~Contact();
 	PhoneBook::~PhoneBook();
-	exit(0);
+	return ;
 }
