@@ -6,7 +6,7 @@
 /*   By: aweizman <aweizman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 15:48:53 by aweizman          #+#    #+#             */
-/*   Updated: 2024/06/24 15:37:40 by aweizman         ###   ########.fr       */
+/*   Updated: 2024/06/29 15:11:59 by aweizman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Cat::~Cat()
 	std::cout << "Cat destructer called" << std::endl;
 }
 
-Cat::Cat(const Cat& src)
+Cat::Cat(const Cat& src) : Animal(src)
 {
 	std::cout << "Cat copy constructor called" << std::endl;
 	*this = src;
