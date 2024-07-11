@@ -12,6 +12,7 @@ class Form
         size_t      _grade_to_exec;
     public:
         Form(void);
+        Form(std::string name, bool issigned, int grade_to_exec, int grade_to_sign) ;
         Form(const Form& other);
         Form &operator=(const Form &other);
         ~Form();

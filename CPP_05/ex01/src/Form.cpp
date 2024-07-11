@@ -1,9 +1,27 @@
 #include "Form.hpp"
 
 // Default constructor
-Form::Form(void)
+Form::Form(void) : _name("Default Form"), _signed(false), _grade_to_exec(150), _grade_to_sign(150)
 {
     std::cout << "Form Default constructor called" << std::endl;
+    return ;
+}
+
+Form::Form(std::string name, bool issigned, int grade_to_exec, int grade_to_sign) : _name(name), _signed(issigned), _grade_to_exec(grade_to_exec), _grade_to_sign(grade_to_sign)
+{
+    std::cout << "Form Default constructor called" << std::endl;
+     if (_grade_to_exec > 150 || _grade_to_sign > 150)
+    {
+        throw GradeTooLowException();
+        std::cerr << "Grade too low, instead set to 150" << std::endl;
+        _grade = 150;
+    }
+    if (_grade < 1)
+    {
+        throw GradeTooHighException();
+        std::cerr << "Grade too high, instead set to 1" << std::endl;
+        _grade = 1;
+    }
     return ;
 }
 
@@ -60,7 +78,7 @@ void    Form::beSigned(Bureaucrat* buro)
     try
     {
         if (buro->getGrade() > _grade_to_sign)
-            throw Form::GradeTooLowException;
+            throw GradeTooLowException();
         _signed = true;
     }
     catch(const Form::GradeTooLowException & e)

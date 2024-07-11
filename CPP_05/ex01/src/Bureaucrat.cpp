@@ -16,12 +16,36 @@ Bureaucrat::Bureaucrat(std::string name) : _name(name), _grade(150)
 Bureaucrat::Bureaucrat(std::string name, size_t grade) : _name(name), _grade(grade)
 {
     std::cout << "Bureaucrat Name and Grade constructor called" << std::endl;
+    if (_grade > 150)
+    {
+        throw GradeTooLowException();
+        std::cerr << "Grade too low, instead set to 150" << std::endl;
+        _grade = 150;
+    }
+    if (_grade < 1)
+    {
+        throw GradeTooHighException();
+        std::cerr << "Grade too high, instead set to 1" << std::endl;
+        _grade = 1;
+    }
     return ;
 }
 
 Bureaucrat::Bureaucrat(size_t grade) : _name("Default Bureaucrat"), _grade(grade)
 {
     std::cout << "Bureaucrat Grade constructor called" << std::endl;
+    if (_grade > 150)
+    {
+        throw GradeTooLowException();
+        std::cerr << "Grade too low, instead set to 150" << std::endl;
+        _grade = 150;
+    }
+    if (_grade < 1)
+    {
+        throw GradeTooHighException();
+        std::cerr << "Grade too high, instead set to 1" << std::endl;
+        _grade = 1;
+    }
     return ;
 }
 
