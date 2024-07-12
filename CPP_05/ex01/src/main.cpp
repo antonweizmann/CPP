@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antonweizmann <antonweizmann@student.42    +#+  +:+       +#+        */
+/*   By: aweizman <aweizman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 10:30:36 by tblaase           #+#    #+#             */
-/*   Updated: 2024/07/10 18:35:15 by antonweizma      ###   ########.fr       */
+/*   Updated: 2024/07/12 17:20:56 by aweizman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int main(void)
 		// Assistant signs the Form
 		try
 		{
-			// c->beSigned(*a);
+			c->beSigned(*a);
 			a->signForm(*c);
 		}
 		catch(Bureaucrat::GradeTooLowException &e)

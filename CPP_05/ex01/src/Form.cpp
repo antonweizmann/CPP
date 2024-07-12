@@ -116,7 +116,20 @@ void    Form::beSigned(Bureaucrat& buro)
     }
     catch(const GradeTooLowException & e)
     {
-        std::cerr << e.what() << std::endl;
+        throw Bureaucrat::GradeTooLowException();
+    }
+}
+
+void    Form::beSigned(const Bureaucrat& buro)
+{
+    try
+    {
+        if (buro.getGrade() > _grade_to_sign)
+            throw GradeTooLowException();
+        _signed = true;
+    }
+    catch(const GradeTooLowException & e)
+    {
         throw Bureaucrat::GradeTooLowException();
     }
 }
