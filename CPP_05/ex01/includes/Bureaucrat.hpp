@@ -3,6 +3,8 @@
 # include <iostream>
 # include <string>
 
+class Form;
+
 class Bureaucrat
 {
     private:
@@ -20,7 +22,7 @@ class Bureaucrat
         std::string getName() const;
         void        incrementGrade();
         void        decrementGrade();
-        void        signForm(size_t requirement, std::string form);
+        void    signForm(Form form) const;
         class   GradeTooHighException: public std::exception
         {
             public:

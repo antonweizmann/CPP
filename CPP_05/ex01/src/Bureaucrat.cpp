@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 // Default constructor
 Bureaucrat::Bureaucrat(void) : _name("Default Bureaucrat"), _grade(150)
@@ -101,16 +102,16 @@ void    Bureaucrat::incrementGrade()
     }
 }
 
-void    Bureaucrat::signForm(const size_t requirement, const std::string form)
+void    Bureaucrat::signForm(Form form) const
 {
     try
     {
-        if (_grade > requirement)
-            throw GradeTooLowException();
+        form.beSigned(*this);
+        std::cout << _name << " signed " << form.getName() << std::endl;
     }
     catch(const GradeTooLowException& e)
     {
-        std::cerr << _name << " couldn't sign " << form << " because " << e.what() << std::endl;
+        std::cerr << _name << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
     }
 
 }
