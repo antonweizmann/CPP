@@ -1,31 +1,35 @@
 #include "Form.hpp"
 
-void    Form::check_grades()
+void    Form::check_grades(int grade_to_exec, int grade_to_sign)
 {
-     if (_grade_to_exec > 150)
+     if (grade_to_exec > 150)
     {
         throw GradeTooLowException();
         std::cerr << "Grade too low, instead set to 150" << std::endl;
-        _grade_to_exec = 150;
+        grade_to_exec = 150;
     }
-    else if (_grade_to_exec < 1)
+    else if (grade_to_exec < 1)
     {
         throw GradeTooHighException();
         std::cerr << "Grade too high, instead set to 1" << std::endl;
-        _grade_to_exec = 1;
+        grade_to_exec = 1;
     }
-    if (_grade_to_sign > 150)
+    else
+        _grade_to_exec = grade_to_exec;
+    if (grade_to_sign > 150)
     {
         throw GradeTooLowException();
         std::cerr << "Grade too low, instead set to 150" << std::endl;
-        _grade_to_sign = 150;
+        grade_to_sign = 150;
     }
-    else if (_grade_to_sign < 1)
+    else if (grade_to_sign < 1)
     {
         throw GradeTooHighException();
         std::cerr << "Grade too high, instead set to 1" << std::endl;
-        _grade_to_sign = 1;
+        grade_to_sign = 1;
     }
+    else
+        _grade_to_sign = grade_to_sign;
 }
 // Default constructor
 Form::Form(void) : _name("Default Form"), _signed(false), _grade_to_sign(150), _grade_to_exec(150)
@@ -34,23 +38,23 @@ Form::Form(void) : _name("Default Form"), _signed(false), _grade_to_sign(150), _
     return ;
 }
 
-Form::Form(std::string name, bool issigned, int grade_to_exec, int grade_to_sign) : _name(name), _signed(issigned), _grade_to_sign(grade_to_sign), _grade_to_exec(grade_to_exec)
+Form::Form(std::string name, bool issigned, int grade_to_exec, int grade_to_sign) : _name(name), _signed(issigned)
 {
-    std::cout << "Form Default constructor called" << std::endl;
-    check_grades();
+    std::cout << "Form Full constructor called" << std::endl;
+    check_grades(grade_to_exec, grade_to_sign);
     return ;
 }
 
-Form::Form(std::string name, int grade_to_exec, int grade_to_sign) : _name(name), _signed(false), _grade_to_sign(grade_to_sign), _grade_to_exec(grade_to_exec)
+Form::Form(std::string name, int grade_to_exec, int grade_to_sign) : _name(name), _signed(false)
 {
-    std::cout << "Form Default constructor called" << std::endl;
-    check_grades();
+    std::cout << "Form No Signed constructor called" << std::endl;
+    check_grades(grade_to_exec, grade_to_sign);
     return ;
 }
-Form::Form(int grade_to_exec, int grade_to_sign) : _name("Default Form"), _signed(false), _grade_to_sign(grade_to_sign), _grade_to_exec(grade_to_exec)
+Form::Form(int grade_to_exec, int grade_to_sign) : _name("Default Form"), _signed(false)
 {
-    std::cout << "Form Default constructor called" << std::endl;
-    check_grades();
+    std::cout << "Form Grades constructor called" << std::endl;
+    check_grades(grade_to_exec, grade_to_sign);
     return ;
 }
 
@@ -102,7 +106,7 @@ std::string Form::getName() const
     return _name;
 }
 
-void    Form::beSigned(Bureaucrat buro)
+void    Form::beSigned(Bureaucrat& buro)
 {
     try
     {

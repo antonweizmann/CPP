@@ -22,8 +22,8 @@ class Form
         size_t  getGradeToExec() const;
         bool    getSigned() const;
         std::string getName() const;
-        void    check_grades();
-        void    beSigned(Bureaucrat buro);
+        void    check_grades(int grade_to_exec, int grade_to_sign);
+        void    beSigned(Bureaucrat& buro);
 
         class   GradeTooHighException: public std::exception
         {
