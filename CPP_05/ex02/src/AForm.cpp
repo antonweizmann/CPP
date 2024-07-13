@@ -134,6 +134,21 @@ void    AForm::beSigned(const Bureaucrat& buro)
     }
 }
 
+void    AForm::checkReq(Bureaucrat& buro)
+{
+    try
+    {
+        if (buro.getGrade() > _grade_to_exec)
+            throw GradeTooLowException();
+        
+    }
+    catch(const GradeTooLowException & e)
+    {
+        throw Bureaucrat::GradeTooLowException();
+    }
+
+}
+
 const char* AForm::GradeTooHighException::what() const throw()
 {
     return ("Grade too high!");
