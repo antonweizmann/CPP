@@ -7,6 +7,7 @@ class RobotomyRequestForm : public AForm
 {
     private:
         std::string _target;
+        void    action(void) const;
     public:
         //Constructers and Destructers
         RobotomyRequestForm(void);
@@ -15,10 +16,9 @@ class RobotomyRequestForm : public AForm
         RobotomyRequestForm &operator=(const RobotomyRequestForm &src);
         ~RobotomyRequestForm();
         //Getters and Setters
-        std::string& getTarget();
+        std::string& getTarget() ;
 
         //Functions
-
 };
 
 #endif

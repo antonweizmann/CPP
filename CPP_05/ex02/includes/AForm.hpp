@@ -10,6 +10,7 @@ class AForm
         bool        _signed;
         size_t      _grade_to_sign;
         size_t      _grade_to_exec;
+        virtual void    action(void) const = 0;
     public:
         //Constructers and Destructers
         AForm(void);
@@ -18,7 +19,7 @@ class AForm
         AForm(int grade_to_exec, int grade_to_sign);
         AForm(const AForm& other);
         AForm &operator=(const AForm &other);
-        ~AForm();
+        virtual ~AForm();
 
         //Getters and Setters
         size_t  getGradeToSign() const;
@@ -27,7 +28,7 @@ class AForm
         std::string getName() const;
 
         //Functions
-        virtual void    execute(Bureaucrat const & executer) const = 0;
+        void    execute(Bureaucrat const & executer) const;
         void    check_grades(int grade_to_exec, int grade_to_sign);
         void    beSigned(Bureaucrat& buro);
         void    beSigned(const Bureaucrat& buro);
@@ -40,6 +41,11 @@ class AForm
                 const char* what() const throw();
         };
         class   GradeTooLowException: public std::exception
+        {
+            public:
+                const char* what() const throw();
+        };
+        class   FormNotSignedException: public std::exception
         {
             public:
                 const char* what() const throw();

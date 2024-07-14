@@ -1,12 +1,12 @@
 #include "PresidentialPardonForm.hpp"
 // Default constructor
-PresidentialPardonForm::PresidentialPardonForm(void) : _target("non existent"), AForm("PresidentialPardonForm", 5, 25)
+PresidentialPardonForm::PresidentialPardonForm(void) : AForm("PresidentialPardonForm", 5, 25), _target("non existent")
 {
     std::cout << "PresidentialPardonForm Default constructor called" << std::endl;
     return ;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target) : _target(target), AForm("PresidentialPardonForm", 5, 25)
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("PresidentialPardonForm", 5, 25), _target(target)
 {
     std::cout << "PresidentialPardonForm Default constructor called" << std::endl;
     return ;
@@ -38,3 +38,12 @@ PresidentialPardonForm::~PresidentialPardonForm(void)
     return ;
 }
 
+void    PresidentialPardonForm::action() const
+{
+    std::cout << _target << "has been pardoned by Zaphlod Beeblebrox" << std::endl;
+}
+
+std::string& PresidentialPardonForm::getTarget(void)
+{
+    return _target;
+}

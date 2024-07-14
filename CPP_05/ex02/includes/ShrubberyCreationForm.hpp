@@ -3,10 +3,12 @@
 # include <iostream>
 # include <string>
 # include "AForm.hpp"
+# include <fstream>
 class ShrubberyCreationForm : public AForm
 {
     private:
         std::string _target;
+        void    action(void) const;
     public:
         //Constructers and Destructers
         ShrubberyCreationForm(void);
@@ -16,10 +18,9 @@ class ShrubberyCreationForm : public AForm
         ~ShrubberyCreationForm();
 
         //Getters and Setters
-        std::string& getTarget();
+        std::string& getTarget() ;
 
         //Functions
-        void    execute(Bureaucrat const & executer);
 };
 
 #endif

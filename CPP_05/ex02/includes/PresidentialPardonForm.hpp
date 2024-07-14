@@ -7,6 +7,7 @@ class PresidentialPardonForm : public AForm
 {
     private:
         std::string _target;
+        void    action(void) const;
     public:
         //Constructers and Destructers
         PresidentialPardonForm(void);
@@ -16,10 +17,9 @@ class PresidentialPardonForm : public AForm
         ~PresidentialPardonForm();
 
         //Getters and Setters
-        std::string& getTarget();
+        std::string& getTarget() ;
 
         //Functions
-        
 };
 
 #endif

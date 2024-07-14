@@ -152,3 +152,17 @@ std::ostream&	operator<<(std::ostream& output, const Bureaucrat *temp)
     output << temp->getName() << ", bureaucrat grade " << temp->getGrade() << std::endl;
     return (output);
 }
+
+void    Bureaucrat::executeForm(AForm const & form)
+{
+    try
+    {
+        form.execute(*this);
+        std::cout << _name << " executed " << form.getName() << std::endl;
+    }
+    catch (const GradeTooLowException& e)
+    {
+        std::cout << _name << "could not execute " << form.getName() << ": " << e.what() << std::endl;
+    }
+
+}
