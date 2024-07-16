@@ -4,6 +4,7 @@
 # include <string>
 # include "AForm.hpp"
 # include <fstream>
+# include <cstring>
 class ShrubberyCreationForm : public AForm
 {
     private:
