@@ -3,6 +3,12 @@
 # include <iostream>
 # include <string>
 
+# define INVALID 0
+# define DOUBLE 1
+# define FLOAT 2
+# define CHAR 3
+# define NANF 4
+# define INT 5
 class ScalarConverter
 {
     public:

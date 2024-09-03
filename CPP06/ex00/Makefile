@@ -6,7 +6,7 @@
 #    By: antonweizmann <antonweizmann@student.42    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/03 15:24:38 by aweizman          #+#    #+#              #
-#    Updated: 2024/08/11 17:06:56 by antonweizma      ###   ########.fr        #
+#    Updated: 2024/09/03 17:17:37 by antonweizma      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CFLAGS = -Wall -Werror -Wextra -std=c++98
 
 NAME = Scalar
 
-SRCS = main.cpp
+SRCS = main.cpp ScalarConverter.cpp
 
 INCLUDES = -I./includes
 
