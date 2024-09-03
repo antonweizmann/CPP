@@ -111,17 +111,17 @@ static void convertNan(std::string input)
 
     std::cout << "char: impossible" << std::endl;
     std::cout << "int: inpossible" << std::endl;
-    for (int i = 0; i < 3; i++)
-    {
-        if (pseudoLitarals[i] == input)
-        {
-            std::cout << "float: " << input << std::endl;
-            std::cout << "double: " << input.substr(0, input.length() - 1) << std::endl;
-            return ;
-        }
-    }
-    std::cout << "float: " << input << "f" << std::endl;
-    std::cout << "double: " << input << std::endl;
+//     for (int i = 0; i < 3; i++)
+//     {
+//         if (pseudoLitarals[i] == input)
+//         {
+//             std::cout << "float: " << input << std::endl;
+//             std::cout << "double: " << input.substr(0, input.length() - 1) << std::endl;
+//             return ;
+//         }
+//     }
+//     std::cout << "float: " << input << "f" << std::endl;
+//     std::cout << "double: " << input << std::endl;
 }
 
 static int checkType(std::string input)
