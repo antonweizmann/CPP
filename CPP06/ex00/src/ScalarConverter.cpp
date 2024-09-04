@@ -107,21 +107,48 @@ static void convertChar(std::string input)
 
 static void convertNan(std::string input)
 {
-    std::string pseudoLitarals[] = {"-inff", "+inff", "nanf"};
-
+    std::string pseudoLitarals[] = {"-inff", "+inff", "nanf", "-inf", "+inf", "nan"};
+    int i = 0;
+    double db = 0;
+    float f = 0;
     std::cout << "char: impossible" << std::endl;
     std::cout << "int: inpossible" << std::endl;
-//     for (int i = 0; i < 3; i++)
-//     {
-//         if (pseudoLitarals[i] == input)
-//         {
-//             std::cout << "float: " << input << std::endl;
-//             std::cout << "double: " << input.substr(0, input.length() - 1) << std::endl;
-//             return ;
-//         }
-//     }
-//     std::cout << "float: " << input << "f" << std::endl;
-//     std::cout << "double: " << input << std::endl;
+    while (i < 6)
+        if (!pseudoLitarals[i++].compare(input))
+            break;
+    std::cout << i << std::endl;
+    switch (--i) {
+        case 0:
+            f = -std::numeric_limits<float>::infinity();
+            std::cout << "float: " << f << "f" << std::endl;
+            std::cout << "double: " << static_cast<double>(f) << std::endl;
+            break;
+        case 1:
+            f = std::numeric_limits<float>::infinity();
+            std::cout << "float: " << f << "f" << std::endl;
+            std::cout << "double: " << static_cast<double>(f) << std::endl;
+            break;
+        case 2:
+            f = nanf("");
+            std::cout << "float: " << f << "f" << std::endl;
+            std::cout << "double: " << static_cast<double>(f) << std::endl;
+            break;
+        case 3:
+            db = -std::numeric_limits<float>::infinity();
+            std::cout << "float: " << static_cast<float>(db) << "f" << std::endl;
+            std::cout << "double: " << db << std::endl;
+            break;
+        case 4:
+            db = std::numeric_limits<float>::infinity();
+            std::cout << "float: " << static_cast<float>(db) << "f" << std::endl;
+            std::cout << "double: " << db << std::endl;
+            break;
+        case 5:
+            db = nan("");
+            std::cout << "float: " << static_cast<float>(db) << "f" << std::endl;
+            std::cout << "double: " << db << std::endl;
+            break;
+    }
 }
 
 static int checkType(std::string input)

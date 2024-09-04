@@ -2,6 +2,7 @@
 # define SCALARCONVERTER_HPP
 # include <iostream>
 # include <string>
+# include <limits>
 
 # define INVALID 0
 # define DOUBLE 1
@@ -9,6 +10,8 @@
 # define CHAR 3
 # define NANF 4
 # define INT 5
+
+
 class ScalarConverter
 {
     public:
