@@ -6,7 +6,7 @@
 #    By: antonweizmann <antonweizmann@student.42    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/03 15:24:38 by aweizman          #+#    #+#              #
-#    Updated: 2024/09/04 09:17:10 by antonweizma      ###   ########.fr        #
+#    Updated: 2024/09/04 11:38:16 by antonweizma      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,9 @@ CC = c++
 
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
-NAME = Serialize
+NAME = Array
 
-SRCS = main.cpp Data.cpp Serializer.cpp
+SRCS = main.cpp
 
 INCLUDES = -I./includes
 
