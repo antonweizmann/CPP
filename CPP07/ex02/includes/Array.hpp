@@ -9,8 +9,8 @@ template <typename T>
 class Array
 {
 	private:
-		unsigned int _size;
-		T* _data;
+		T* _data;		unsigned int _size;
+
 	public:
 		Array();
 		Array(unsigned int n);

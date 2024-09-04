@@ -46,7 +46,7 @@ unsigned int Array<T>::size() const
 template <typename T>
 T& Array<T>::operator[](unsigned int n)
 {
-	if (n > _size - 1)
+	if (n >= _size)
 		throw OutOfBounds();
 	return _data[n];
 }
@@ -54,7 +54,7 @@ T& Array<T>::operator[](unsigned int n)
 template <typename T>
 const T& Array<T>::operator[](unsigned int n) const
 {
-	if (n > _size - 1)
+	if (n >= _size)
 		throw OutOfBounds();
 	return _data[n];
 }

@@ -5,15 +5,14 @@
 # include "Data.hpp"
 class Serializer
 {
-    private:
-        Serializer(void);
-        Serializer(const Serializer& src);
-        Serializer &operator=(const Serializer &src);
-        ~Serializer();
     public:
         //Constructers and Destructers
 
         //Getters and Setters
+        Serializer(void) = delete;
+        Serializer(const Serializer& src);
+        Serializer &operator=(const Serializer &src);
+        ~Serializer();
 
         //Functions
         static uintptr_t serialize(Data* ptr)

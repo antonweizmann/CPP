@@ -13,22 +13,18 @@ Base *generate(void)
     int rnd = rand() % 3;
     // Generate and print a random number between 1 and 3
     std::cout << rnd << std::endl;
-    // switch (rnd)
-    // {
-    //     case 0:
-    //         return new A;
-    //     case 1:
-    //         return new B;
-    //     case 2:
-    //         return new C;
-    //     default:
-    //         return nullptr;
-    // }
-      if (rnd == 0)
-    return (new A);
-  else if (rnd == 1)
-    return (new B);
-  return (new C);
+    switch (rnd)
+    {
+        case 0:
+            return new A;
+        case 1:
+            return new B;
+        case 2:
+            return new C;
+        default:
+            return nullptr;
+    }
+
 }
 
 void identify(Base* p)

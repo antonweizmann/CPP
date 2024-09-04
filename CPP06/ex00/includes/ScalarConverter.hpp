@@ -16,7 +16,7 @@ class ScalarConverter
 {
     public:
         //Constructers and Destructers
-        ScalarConverter(void);
+        ScalarConverter(void) = delete;
         ScalarConverter(const ScalarConverter& src);
         ScalarConverter &operator=(const ScalarConverter &src);
         ~ScalarConverter();
