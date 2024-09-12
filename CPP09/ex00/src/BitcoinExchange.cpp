@@ -10,7 +10,7 @@ BitcoinExchange::BitcoinExchange(void)
 BitcoinExchange::BitcoinExchange(std::string input_file)
 {
     std::cout << "BitcoinExchange contructor called" << std::endl;
-    _data = parse_map("data.csv");
+    _data = parse_map("/Users/aweizman/Desktop/Projects/Fourth_Ring/CPP/CPP09/ex00/includes/data.csv");
     _request = parse_multi_map(input_file);
 }
 
@@ -40,16 +40,17 @@ BitcoinExchange::~BitcoinExchange(void)
     return ;
 }
 
-std::map<std::string, double> parse_map(std::string database_file)
+std::map<std::string, double> parse_map(const std::string database_file)
 {
-    std::ifstream infile(database_file.c_str());
+    std::ifstream data_file(database_file);
     std::map<std::string, double> database;
-    std::string line = NULL;
+    std::string line;
     std::string seperator = ",";
 
-    if (!infile.is_open())
+    if (!data_file.is_open())
         throw std::runtime_error("Could no open file");
-    while (std::getline(infile, line))
+    std::getline(data_file, line);
+    while (std::getline(data_file, line))
     {
         size_t sep_pos = line.find(seperator);
         if (sep_pos == std::string::npos || !sep_pos || sep_pos == line.size() - seperator.size())
@@ -64,15 +65,16 @@ std::map<std::string, double> parse_map(std::string database_file)
     return database;
 }
 
-std::multimap<std::string, double> parse_multi_map(std::string input_file)
+std::multimap<std::string, double> parse_multi_map(const std::string &input_file)
 {
-    std::ifstream infile(input_file.c_str());
+    std::ifstream infile(input_file);
     std::multimap<std::string, double> database;
-    std::string line = NULL;
+    std::string line;
     std::string seperator = " | ";
 
     if (!infile.is_open())
         throw std::runtime_error("Could no open file");
+    std::getline(infile, line);
     while (std::getline(infile, line))
     {
         size_t sep_pos = line.find(seperator);
@@ -80,8 +82,16 @@ std::multimap<std::string, double> parse_multi_map(std::string input_file)
             throw std::runtime_error("Invalid Line Format: " + line);
         std::string date = line.substr(0, sep_pos);
         check_date(date);
+        try
+        {
+            std::stod(line.substr(sep_pos + seperator.size()));
+        }
+        catch(const std::exception& e)
+        {
+            throw std::runtime_error("Invalid value: " + line);
+        }
         double value = std::stod(line.substr(sep_pos + seperator.size()));
-        if (value < 0)
+        if (value < 0 || value > 1000)
             throw std::runtime_error("Invalid value: " + line);
         database.insert(std::make_pair(date, value));
     }

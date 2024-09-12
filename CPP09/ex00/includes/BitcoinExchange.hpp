@@ -27,8 +27,8 @@ class BitcoinExchange
         //Execptions
 };
 
-std::map<std::string, double> parse_map(std::string database);
-std::multimap<std::string, double> parse_multi_map(std::string input_file);
+std::map<std::string, double> parse_map(const std::string database);
+std::multimap<std::string, double> parse_multi_map(const std::string &input_file);
 void check_date(std::string date);
 #endif
 
