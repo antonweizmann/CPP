@@ -4,15 +4,9 @@
         {
             "label": "build",
             "type": "shell",
-            "command": "make",
+            "command": "make -C CPP09/ex00",
             "group": "build",
             "problemMatcher": "$gcc"
         },
-        {
-            "label": "Open Terminal",
-            "type": "shell",
-            "command": "osascript -e 'tell application \"Terminal\"\ndo script \"echo hello\"\nend tell'",
-            "problemMatcher": []
-        }
     ]
 }

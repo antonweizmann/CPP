@@ -33,17 +33,13 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "g++-10 - Build and debug active file",
-            "type": "cppdbg",
+            "type": "lldb",
             "request": "launch",
+            "name": "btc",
             "program": "${workspaceFolder}/CPP09/ex00/btc",
-            "args": ["${workspaceFolder}/CPP09/ex00/test_file"],
-            "stopAtEntry": false,
+            "args": ["./CPP09/ex00/test_file"],
             "cwd": "${workspaceFolder}",
-            "environment": [],
-            "externalConsole": true,
-            "MIMode": "lldb",
-            // "preLaunchTask": "build"
-        }
+            "preLaunchTask": "build",
+        },
     ]
 }
