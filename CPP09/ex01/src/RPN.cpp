@@ -12,9 +12,8 @@ RPN::RPN(std::string input)
     std::cout << "RPN input constructor called" << std::endl;
     if (input.empty())
         throw std::runtime_error("Input empty");
-    _ss = std::stringstream(input);
-    check_input();
-    calculate();
+    check_input(input);
+    calculate(0);
     return ;
 }
 
@@ -44,7 +43,14 @@ RPN::~RPN(void)
     return ;
 }
 
-void check_input(const std::string &input)
+bool is_operator(const std::string &str)
+{
+    if (str == "+" || str == "-" || str == "*" || str == "/")
+        return (true);
+    return (false);
+}
+
+void RPN::check_input(const std::string &input)
 {
     std::stringstream ss(input);
     std::string tmp;
@@ -52,29 +58,62 @@ void check_input(const std::string &input)
     long i = 0;
     while (ss >> tmp)
     {
-        i = std::stoi(tmp);
-        if (i > INT_MAX)
-            throw std::runtime_error("Input cannot be bigger than Int");
-        else if (!std::isdigit(i) && !(i == '+' || i == '-' || i == '*' || i == '/'))
-            throw std::runtime_error("Input should only include numbers and math operators");
-        else if (!count && !std::isdigit(i))
+        if (tmp.find_first_not_of("0123456789") != std::string::npos)
+        {
+            if (!is_operator(tmp))
+                throw std::runtime_error("Input should only include numbers and math operators");
+        }
+        else
+        {
+            i = std::stoi(tmp);
+            if (i > INT_MAX)
+                throw std::runtime_error("Input cannot be bigger than Int");
+        }
+        if (!count && is_operator(tmp))
             throw std::runtime_error("Input should start with a number");
-        else if ((count % 2 && !std::isdigit(i)) || (!count % 2 && std::isdigit(i)))
-            throw std::runtime_error("Input is not a inverted Polish mathematical expression");
+        // else if ((count % 2 && is_operator(tmp)) || (!count % 2 && !is_operator(tmp) && count != 0))
+        //     throw std::runtime_error("Input is not a inverted Polish mathematical expression");
         count++;
+        _stack.push(tmp);
     }
-    if (!(i == '+' || i == '-' || i == '*' || i == '/') || count < 3)
+    if (!is_operator(tmp) || count < 3)
         throw std::runtime_error("Input is not a inverted Polish mathematical expression");
     
 }
 
-void RPN::calculate(void)
+void RPN::calculate(int level)
 {
-    std::string tmp;
-    _ss >> tmp;
-    long operand1 = INT_MAX + 1;
-    long operand2 = INT_MAX + 1;
-    
-    
-
+    long operand1 = INT_MAX + 1l;
+    long operand2 = INT_MAX + 1l;
+    std::string operation;
+    while (operand1 == INT_MAX + 1l|| operand2 == INT_MAX + 1l || operation == "")
+    {
+        if (is_operator(_stack.top()) && operation.empty())
+        {
+            operation = _stack.top();
+            _stack.pop();
+        }
+        if (is_operator(_stack.top()))
+            calculate(level + 1);
+        if (operand2 == INT_MAX + 1l)
+        {
+            operand2 = std::stoi(_stack.top());
+            _stack.pop();
+        }
+        else if (operand1 == INT_MAX + 1l)
+        {
+            operand1 = std::stoi(_stack.top());
+            _stack.pop();
+        }
+    }
+    if (operation == "+")
+        _stack.push(std::to_string(operand1 + operand2));
+    else if (operation == "-")
+        _stack.push(std::to_string(operand1 - operand2));
+    else if (operation == "*")
+        _stack.push(std::to_string(operand1 * operand2));
+    else if (operation == "/")
+        _stack.push(std::to_string(operand1 / operand2));
+    if (level == 0)
+        std::cout << "Result: " << _stack.top() << std::endl;
 }

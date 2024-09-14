@@ -6,7 +6,7 @@
 #    By: antonweizmann <antonweizmann@student.42    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/03 15:24:38 by aweizman          #+#    #+#              #
-#    Updated: 2024/09/13 11:43:04 by antonweizma      ###   ########.fr        #
+#    Updated: 2024/09/14 10:38:19 by antonweizma      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CC = c++
 
 CFLAGS = -g3 -Wall -Werror -Wextra -std=c++17
 
-NAME = btc
+NAME = RPN
 
 SRCS = main.cpp RPN.cpp
 

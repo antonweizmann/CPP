@@ -2,9 +2,16 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build",
+            "label": "buildex00",
             "type": "shell",
             "command": "make -C CPP09/ex00",
+            "group": "build",
+            "problemMatcher": "$gcc"
+        },
+        {
+            "label": "buildex01",
+            "type": "shell",
+            "command": "make -C CPP09/ex01",
             "group": "build",
             "problemMatcher": "$gcc"
         },

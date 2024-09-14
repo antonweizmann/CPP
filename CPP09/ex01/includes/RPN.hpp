@@ -7,8 +7,7 @@
 class RPN
 {
     private:
-        std::stack<int> _stack;
-        std::stringstream _ss;
+        std::stack<std::string> _stack;
     public:
         //Constructers and Destructers
         RPN(void);
@@ -20,10 +19,10 @@ class RPN
         //Getters and Setters
 
         //Functions
-        void calculate(void);
+        void calculate(int level);
+        void check_input(const std::string &input);
         //Execptions
 };
-        void check_input(const std::string &input);
 
 #endif
 
