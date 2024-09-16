@@ -26,8 +26,8 @@ class PmergeMe
         //Getters and Setters
 
         //Functions
-        typename TContainer::iterator PmergeMe<TContainer>::binary_search(typename TContainer::iterator start, typename TContainer::iterator end, const typename TContainer::value_type &value)
-
+        typename TContainer::iterator binary_search(typename TContainer::iterator start, typename TContainer::iterator end, const typename TContainer::value_type &value)
+        void split(TContainer &sorted)
         //Execptions
 };
 void deque_ford_johnson(std::deque<int> &deque);

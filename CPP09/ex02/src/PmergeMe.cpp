@@ -84,10 +84,49 @@ typename TContainer::iterator PmergeMe<TContainer>::binary_search(typename TCont
     return  (start + low);
 }
 
-void deque_ford_johnson(std::deque<int> &container)
+template <typename TContainer>
+void PmergeMe<TContainer>::split(TContainer &sorted)
+{
+    int pair1 = 0;
+    int pair2 = 0;
+    if (_container.size() == 0)
+        throw std::runtime_error("Container is empty");
+    TContainer::iterator it = _container.begin();
+    while (it <= _container.end() && it + 1 <= _container.end())
+    {
+        pair1 = _container.it;
+        pair2 = _container.it + 1;
+        if (pair1 > pair2)
+        {
+            sorted.insert(binary_search(sorted.begin(), sorted.end(), pair1), pair1);
+            _container.erase(pair1);
+        }
+        else
+        {
+            sorted.insert(binary_search(sorted.begin(), sorted.end(), pair2), pair2);
+            _container.erase(pair2);
+        }
+        it +=2;
+    }
+    if (it == _container.end())
+        sorted.insert(binary_search(sorted.begin(), sorted.end(), _container[it]), _container[it]);
+}
+
+size_t PmergeMe<TContainer>::generateJacobsthal(void)
+{
+    static size_t jacobsthal1 = 0;
+    static size_t jacobsthal2 = 1;
+    
+    return ();
+}
+
+void deque_ford_johnson(PmergeMe<std::deque<int>> &container)
 {
     std::deque<int> sorted;
     container.split(sorted);
+    if (sorted.size() == 0)
+        throw std::runtime_error("Container is empty");
+    sort(sorted, container);
 
 }
 
