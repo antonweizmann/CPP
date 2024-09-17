@@ -106,7 +106,7 @@ void PmergeMe<TContainer>::parse_input(char **argv)
     }
     catch(const std::exception &e)
     {
-        std::cerr << e.what() << std::endl;
+        std::cerr << "Invalid Input: " << e.what() << std::endl;
         exit(1);
     }
 }
