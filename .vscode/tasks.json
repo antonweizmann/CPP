@@ -15,5 +15,12 @@
             "group": "build",
             "problemMatcher": "$gcc"
         },
+        {
+            "label": "buildex02",
+            "type": "shell",
+            "command": "make -C CPP09/ex02",
+            "group": "build",
+            "problemMatcher": "$gcc"
+        },
     ]
 }
