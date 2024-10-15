@@ -10,9 +10,9 @@ class Serializer
 
         //Getters and Setters
         Serializer(void) = delete;
-        Serializer(const Serializer& src);
-        Serializer &operator=(const Serializer &src);
-        ~Serializer();
+        Serializer(const Serializer& src) = delete;
+        Serializer &operator=(const Serializer &src) = delete;
+        ~Serializer() = delete;
 
         //Functions
         static uintptr_t serialize(Data* ptr)

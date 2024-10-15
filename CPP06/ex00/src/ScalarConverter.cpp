@@ -1,38 +1,5 @@
 #include "ScalarConverter.hpp"
 
-// Default constructor
-ScalarConverter::ScalarConverter(void)
-{
-    std::cout << "ScalarConverter Default constructor called" << std::endl;
-    return ;
-}
-
-// Copy constructor
-ScalarConverter::ScalarConverter(const ScalarConverter &src)
-{
-    std::cout << "ScalarConverter Copy constructor called" << std::endl;
-    *this = src;
-    return ;
-}
-
-// Assignment operator overload
-ScalarConverter &ScalarConverter::operator=(const ScalarConverter &src)
-{
-    std::cout << "ScalarConverter Assignment operator called" << std::endl;
-    if (this != &src)
-    {
-
-    }
-    return (*this);
-}
-
-// Destructor
-ScalarConverter::~ScalarConverter(void)
-{
-    std::cout << "ScalarConverter Destructor called" << std::endl;
-    return ;
-}
-
 static void convertFloat(std::string input)
 {
     float nb = std::stof(input);
@@ -47,7 +14,7 @@ static void convertFloat(std::string input)
         std::cout << "int: impossible" << std::endl;\
     else
         std::cout << "int: " << static_cast<int>(nb) << std::endl;
-    std::cout << "teeee     float: " << nb << "f" << std::endl;
+    std::cout << "float: " << nb << "f" << std::endl;
     std::cout << "double: " << static_cast<double>(nb) << std::endl;
 }
 
@@ -71,14 +38,14 @@ static void convertDecimal(std::string input)
 
 static void convertInt(std::string input)
 {
-    long int check = std::stoi(input);
-
-    if (check < INT_MIN || check > INT_MAX)
-    {
+    int nb;
+    try {
+        nb = std::stoi(input);
+    }
+    catch (const std::exception &e) {
         std::cout << "Error: input is to large to be an Int." << std::endl;
         return ;
     }
-    int nb = check;
     if (nb < 0 || nb > 127)
         std::cout << "char: impossible" << std::endl;
     else if (nb < 33 || nb == 127)

@@ -3,21 +3,20 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: antonweizmann <antonweizmann@student.42    +#+  +:+       +#+         #
+#    By: aweizman <aweizman@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/03 15:24:38 by aweizman          #+#    #+#              #
-#    Updated: 2024/09/04 09:17:10 by antonweizma      ###   ########.fr        #
+#    Updated: 2024/10/15 15:05:25 by aweizman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = c++
 
-CFLAGS = -Wall -Werror -Wextra -std=c++98
+CFLAGS = -Wall -Werror -Wextra -std=c++17
 
 NAME = Serialize
 
-SRCS = main.cpp Data.cpp Serializer.cpp
-
+SRCS = main.cpp Data.cpp
 INCLUDES = -I./includes
 
 SRC_PATH = src
