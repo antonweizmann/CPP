@@ -6,17 +6,17 @@
 #    By: antonweizmann <antonweizmann@student.42    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/03 15:24:38 by aweizman          #+#    #+#              #
-#    Updated: 2024/09/14 10:38:19 by antonweizma      ###   ########.fr        #
+#    Updated: 2024/09/17 11:12:42 by antonweizma      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = c++
 
-CFLAGS = -g3 -Wall -Werror -Wextra -std=c++17
+CFLAGS = -g -Wall -Werror -Wextra -std=c++17
 
-NAME = RPN
+NAME = PmergeMe
 
-SRCS = main.cpp RPN.cpp
+SRCS = main.cpp PmergeMe.cpp
 
 INCLUDES = -I./includes
 

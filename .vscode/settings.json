@@ -81,7 +81,8 @@
 		"charconv": "cpp",
 		"clocale": "cpp",
 		"execution": "cpp",
-		"variant": "cpp"
+		"variant": "cpp",
+		"*.tpp": "cpp"
 	},
 	"files.trimTrailingWhitespace": false
 }
